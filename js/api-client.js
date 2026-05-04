@@ -10,6 +10,15 @@ export function apiBaseUrl() {
   if (w && w.__HRMS_API__) {
     return String(w.__HRMS_API__).replace(/\/+$/, '');
   }
+  if (w) {
+    const host = w.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1' || host === '[::1]') {
+      return 'http://127.0.0.1:8787';
+    }
+    if (w.location.protocol === 'http:' || w.location.protocol === 'https:') {
+      return w.location.origin.replace(/\/+$/, '');
+    }
+  }
   return 'http://127.0.0.1:8787';
 }
 

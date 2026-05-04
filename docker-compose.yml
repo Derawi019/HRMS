@@ -5,7 +5,7 @@
 #   docker compose up -d api
 #
 # Frontend: serve this folder on port 8000 (or any static host),
-# optionally set window.__HRMS_API__ via js/hrms-config.js to http://localhost:8787
+# Same-origin deploys: hrms-config.js uses location.origin. Local dev: defaults to http://127.0.0.1:8787
 
 services:
   postgres:
